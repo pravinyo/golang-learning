@@ -7,16 +7,18 @@ const helloHindiPrefix = "नमस्ते, "
 const helloFrenchPrefix = "Bonjour, "
 
 func Hello(name string, language string) string {
-	prefix := helloEnglishPrefix
+	var prefix string
 	if name == "" {
 		name = "World"
 	}
-	if language == "Hindi" {
-		prefix = helloHindiPrefix
-	}
 
-	if language == "French" {
+	switch language {
+	case "French":
 		prefix = helloFrenchPrefix
+	case "Hindi":
+		prefix = helloHindiPrefix
+	default:
+		prefix = helloEnglishPrefix
 	}
 
 	return prefix + name
