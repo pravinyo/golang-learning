@@ -30,7 +30,7 @@ func TestHello(t *testing.T) {
 	})
 }
 
-func assertCorrectMessage(t testing.TB, got, want string) {
+func assertCorrectMessage(t testing.TB, got, want interface{}) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got %q want %q", got, want)
