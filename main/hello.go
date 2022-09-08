@@ -4,6 +4,7 @@ import "fmt"
 
 const helloEnglishPrefix = "Hello, "
 const helloHindiPrefix = "नमस्ते, "
+const helloFrenchPrefix = "Bonjour, "
 
 func Hello(name string, language string) string {
 	prefix := helloEnglishPrefix
@@ -12,6 +13,10 @@ func Hello(name string, language string) string {
 	}
 	if language == "Hindi" {
 		prefix = helloHindiPrefix
+	}
+
+	if language == "French" {
+		prefix = helloFrenchPrefix
 	}
 
 	return prefix + name
