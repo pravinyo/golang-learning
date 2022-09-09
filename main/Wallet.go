@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Stringer interface {
 	String() string
@@ -24,6 +27,10 @@ func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
 
-func (w *Wallet) Withdraw(bitcoin Bitcoin) {
+func (w *Wallet) Withdraw(bitcoin Bitcoin) error {
+	if w.balance < bitcoin {
+		return errors.New("cannot withdraw, insufficient funds")
+	}
 	w.balance -= bitcoin
+	return nil
 }
